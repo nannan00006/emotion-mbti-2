@@ -12,7 +12,17 @@ const typeDesc = {
 
 /* ---------- 载入题库 ---------- */
 let q=[];
-fetch('questions_1_40.json').then(r=>r.json()).then(d=>{q=d;ready();});
+fetch('questions_1_40.json')
+  .then(r => r.json())
+  .then(d => {
+      q = d;
+      // 确保 DOM 加载完再执行
+      if (document.readyState === 'complete') {
+          ready();
+      } else {
+          window.addEventListener('load', ready);
+      }
+  });
 
 /* ---------- 计分 ---------- */
 const score={I:0,E:0,S:0,M:0,T:0,G:0,C:0,H:0};
