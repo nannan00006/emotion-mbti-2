@@ -3,7 +3,7 @@
     "id": 1,
     "dimension": "TG",
     "reverse": true,
-    "text": "友谊无需严格对等"
+    "text": "友谊不需要严格对等"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "id": 3,
     "dimension": "TG",
     "reverse": true,
-    "text": "帮助别人令我满足不求回报"
+    "text": "帮助别人令我满足"
   },
   {
     "id": 4,
@@ -63,7 +63,7 @@
     "id": 11,
     "dimension": "IE",
     "reverse": true,
-    "text": "我讨厌长时间独处"
+    "text": "我讨厌独处"
   },
   {
     "id": 12,
@@ -129,7 +129,7 @@
     "id": 22,
     "dimension": "IE",
     "reverse": false,
-    "text": "长时间社交会让我感到耗电"
+    "text": "长时间社交会让我感到疲惫"
   },
   {
     "id": 23,
@@ -195,7 +195,7 @@
     "id": 33,
     "dimension": "SM",
     "reverse": true,
-    "text": "我避免站到台前发号施令"
+    "text": "我避免成为众人的中心和焦点"
   },
   {
     "id": 34,
