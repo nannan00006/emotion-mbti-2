@@ -45,7 +45,7 @@
     "id": 8,
     "dimension": "TG",
     "reverse": true,
-    "text": "友谊无需严格对等"
+    "text": "友谊不需要严格对等"
   },
   {
     "id": 9,
@@ -147,13 +147,13 @@
     "id": 25,
     "dimension": "CH",
     "reverse": false,
-    "text": "我重视统一的目标"
+    "text": "我重视方向一致"
   },
   {
     "id": 26,
     "dimension": "IE",
     "reverse": false,
-    "text": "长时间社交会让我感到耗电"
+    "text": "长时间社交会让我感到疲惫"
   },
   {
     "id": 27,
@@ -165,7 +165,7 @@
     "id": 28,
     "dimension": "IE",
     "reverse": true,
-    "text": "与人交谈能让我充电"
+    "text": "与人交谈能让我心情愉快"
   },
   {
     "id": 29,
@@ -189,7 +189,7 @@
     "id": 32,
     "dimension": "SM",
     "reverse": true,
-    "text": "我避免站到台前发号施令"
+    "text": "我避免成为众人的中心和焦点"
   },
   {
     "id": 33,
