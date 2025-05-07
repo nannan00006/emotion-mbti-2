@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>情感 MBTI 四级量表测试</title>
+<title>情感 MBTI 长卷测试</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -14,28 +14,20 @@
 <section id="welcome">
 <h1>情感 MBTI 测试</h1>
 <p>40 题 · 四级量表（完全不符合 → 完全符合）</p>
-<button id="start" class="opt">开始测试</button>
+<button id="start" class="opt">开始答题</button>
 </section>
 
 <section id="quiz" class="hide">
-  <div class="progress"><div id="bar"></div></div>
-  <h3 id="title"></h3>
-
-  <div class="likert4">
-    <label><input type="radio" name="opt" value="1">完全不符合</label>
-    <label><input type="radio" name="opt" value="2">不太符合</label>
-    <label><input type="radio" name="opt" value="3">比较符合</label>
-    <label><input type="radio" name="opt" value="4">完全符合</label>
-  </div>
-
-  <button id="nextBtn" class="opt">下一题</button>
-  <button id="backBtn" class="opt slim">⬅ 返回上一题</button>
+<form id="paper">
+<div id="list"></div>
+<button id="submitBtn" type="button" class="opt" disabled>提交答案</button>
+</form>
 </section>
 
 <section id="result" class="hide">
-  <h2>你的类型：<span id="code"></span></h2>
-  <div id="desc"></div>
-  <button onclick="location.reload()" class="opt">重新测试</button>
+<h2>你的类型：<span id="code"></span></h2>
+<div id="desc"></div>
+<button onclick="location.reload()" class="opt">重新测试</button>
 </section>
 
 </div></div>

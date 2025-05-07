@@ -2,29 +2,12 @@ const typeDesc={ISTC:'控制型孤狼',ISTH:'掌控型稳定者',ISGC:'忍耐型
 let q=[];
 fetch('questions_1_40.json').then(r=>r.json()).then(d=>{q=d;if(document.readyState==='complete'){ready();}else{window.addEventListener('load',ready);}});
 const score={I:0,E:0,S:0,M:0,T:0,G:0,C:0,H:0};const $=id=>document.getElementById(id);
-let i=0,ans=[];
-function ready(){
-  $('start').onclick=start;
-  $('nextBtn').onclick=next;
-  $('backBtn').onclick=back;
-  document.querySelectorAll('[name=opt]').forEach(r=>r.onchange=()=>$('nextBtn').disabled=false);
-}
-function start(){toggle('welcome','quiz');render();}
-function render(){
-  const k=q[i];
-  $('title').textContent=`第 ${i+1}/40 题 · ${k.text}`;
-  const radios=document.querySelectorAll('[name=opt]');
-  radios.forEach(r=>{r.checked=false;});
-  if(ans[i]){ radios[ans[i]-1].checked=true; $('nextBtn').disabled=false; } else { $('nextBtn').disabled=true; }
-  $('backBtn').disabled=(i===0);
-  $('bar').style.width=((i/40)*100)+'%';
-}
-function next(){
-  const vEl=document.querySelector('[name=opt]:checked');if(!vEl)return;
-  const v=+vEl.value; if(ans[i]) update(i,-ans[i]); // 如果之前选过，先撤回旧分
-  ans[i]=v; update(i,v); i++; i<q.length?render():finish();
-}
-function back(){ if(i===0) return; i--; update(i,-ans[i]); render(); }
+function ready(){ $('start').onclick=renderPaper; }
+function renderPaper(){ toggle('welcome','quiz'); const list=$('list'); list.innerHTML=q.map((item,idx)=>`<div class="block"><p><strong>第 ${idx+1} 题</strong> · ${item.text}</p><div class="likert4">${[1,2,3,4].map(v=>`<label><input type=\"radio\" name=\"q${idx}\" value=\"${v}\">${['完全不符合','不太符合','比较符合','完全符合'][v-1]}</label>`).join('')}</div></div>`).join(''); $('paper').addEventListener('change',checkAll); $('submitBtn').onclick=submitAll; }
+function checkAll(){ const answered=document.querySelectorAll('[name^=q]:checked').length; $('submitBtn').disabled=(answered!==q.length); }
 function update(idx,val){ const {dimension,reverse}=q[idx]; const [left,right]=dimension.split(''); const delta=(val-2.5)*(reverse?-1:1); const add=delta*4/3; if(delta>0) score[left]+=add; else score[right]+=Math.abs(add);} 
+function submitAll(){ // 重置
+ Object.keys(score).forEach(k=>score[k]=0);
+ q.forEach((item,idx)=>{ const v=+document.querySelector(`[name=q${idx}]:checked`).value; update(idx,v); }); finish(); }
 function finish(){ toggle('quiz','result'); const code=(score.I>score.E?'I':'E')+(score.S>score.M?'S':'M')+(score.T>score.G?'T':'G')+(score.C>score.H?'C':'H'); $('code').textContent=code; $('desc').textContent=typeDesc[code]||''; }
-function toggle(h,s){$(h).classList.add('hide');$(s).classList.remove('hide');}
+function toggle(h,s){ $(h).classList.add('hide'); $(s).classList.remove('hide'); }
